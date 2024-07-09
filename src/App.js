@@ -1,24 +1,52 @@
-import logo from './logo.svg';
-import './App.css';
+// src/App.js
+
+import React from "react";
+import {
+  BrowserRouter as Router,
+  Route,
+  NavLink,
+  Routes,
+} from "react-router-dom";
+import Home from "./components/Home";
+import Categories from "./components/Categories";
+import Members from "./components/Members";
+import Products from "./components/Products";
+import "./App.css";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+      <nav>
+        <h1>
+          <center>Online Auction Platform</center>
+        </h1>
+        <div>
+          <NavLink to="/" activeClassName="active">
+            Home
+          </NavLink>
+          <NavLink to="/categories" activeClassName="active">
+            Categories
+          </NavLink>
+          <NavLink to="/members" activeClassName="active">
+            Members
+          </NavLink>
+          <NavLink to="/products" activeClassName="active">
+            {" "}
+            {}
+            Products
+          </NavLink>
+        </div>
+      </nav>
+
+      <div className="container">
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/categories" element={<Categories />} />
+          <Route path="/members" element={<Members />} />
+          <Route path="/products" element={<Products />} /> {}
+        </Routes>
+      </div>
+    </Router>
   );
 }
 
